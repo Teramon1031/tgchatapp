@@ -1,0 +1,22 @@
+
+<div class="main users-new">
+  <div class="container">
+    <div class="form-heading">Login</div>
+    <div class="form users-form">
+      <div class="form-body">
+
+        <%= form_tag("/login") do %>
+          <p>TG番号</p>
+          <input name="tgnum" value="<%= @tgnum %>">
+          <p>パスワード</p>
+          <input type="password" name="password" value="<%= @password %>">
+          <input type="submit" value="ログイン">
+        <% end %>
+
+        ログインが初めての方は
+        <%= link_to "sign up", "/signuppage"%>
+      </div>
+    </div>
+  </div>
+</div>
+

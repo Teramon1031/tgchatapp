@@ -1,0 +1,23 @@
+<div class="main users-new">
+  <div class="container">
+    <div class="form-heading">トークルーム</div>
+
+    <h3><%="#{@user.lastname}#{@user.firstname}さん"%></h3>
+
+    <ul>
+    <% @history.each do |message| %>
+    <li><%=message.content%></li>
+    <%end%>
+    </ul>
+    
+    <div class="chat">
+    <div class="chat-send">
+    <%= form_tag("/chat/#{@user.tgnum}/new") do %>
+        <input name="text" value="<%= @text %>">
+        <input type="submit" value="送信">
+    <% end %>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>

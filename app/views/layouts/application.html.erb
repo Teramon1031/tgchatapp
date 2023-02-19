@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SampleApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", media: 'all', "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <header>
+    <div class="header-logo">
+      <a href="/">TG2023</a>
+    </div>
+    <ul class="header-menus">
+      <% if session[:user_tgnum] %>
+      <% user = User.find_by(tgnum: session[:user_tgnum]) %>
+        <li>
+        <%=link_to "TG#{user.tgnum} #{user.lastname}#{user.firstname}", "/mypage/#{user.tgnum}" %>
+        </li>
+      <% else %>
+      <li>
+        <a href="/loginpage">ログイン</a>
+      </li>
+      <% end %>
+     
+    </ul>
+  </header>
+
+    <%= yield %>
+  </body>
+</html>

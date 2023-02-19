@@ -1,0 +1,22 @@
+<div class="main users-new">
+  <div class="container">
+    <div class="form-heading">My page</div>
+
+    <div class="user">
+    <h3><%="#{@user.lastname}#{@user.firstname}さん"%></h3>
+    <ul>
+    <li>
+    <%="TG番号: TG#{@user.tgnum}"%> 
+    </li>
+    <li>
+    <%="email: #{@user.email}"%>
+    </li>
+    </ul>
+    </div>
+
+    <div>
+        <%= link_to "ログアウト", "/logout",data:{"turbo-method": :post} %>
+    </div>
+    </div>
+  </div>
+</div>
